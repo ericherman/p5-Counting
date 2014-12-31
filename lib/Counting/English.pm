@@ -54,9 +54,9 @@ sub _less_than_100 {
     my $tens      = int( $num / 10 );
     my $remainder = $num % 10;
     if ( $tens && $remainder ) {
-        return join( '-', $names->{$tens}, $names->{$remainder} );
+        return join( '-', $names->{ $tens * 10 }, $names->{$remainder} );
     }
-    return $tens ? $names->{$tens} : $names->{$remainder};
+    return $tens ? $names->{ $tens * 10 } : $names->{$remainder};
 }
 
 sub _less_than_1000 {
